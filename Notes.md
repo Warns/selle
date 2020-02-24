@@ -5,3 +5,7 @@
 docker service logs -f --since 60s container_name
 ```
 
+```sh 
+# Equivalent of .WAR file to .NET
+https://stackoverflow.com/questions/11762163/net-equivalents-for-ant-and-war-files
+```

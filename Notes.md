@@ -19,6 +19,11 @@ docker run -d --name tomcat-container -p 8080:8080 tomcat:latest
 # if tomcat container is 404 then do the following
 # 1. Login to container's bash by
 docker exec -it container-name /bin/bash
-#2. Copy contents inside webapp.dist into webapp folder
+# 2. Copy contents inside webapp.dist into webapp folder
+```
+```sh
+# Find any file
+find / -name context.xml
+```
 
 

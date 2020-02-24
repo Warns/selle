@@ -2,7 +2,6 @@
 
 ### Prerequisites
 1. EC2 Instance 
-   - With Internet Access
    - Security Group with Port `8080` open for internet
 1. Java v1.8.x 
 
@@ -17,18 +16,14 @@
    ```sh
    java -version
    find /usr/lib/jvm/java-1.8* | head -n 3
+   
+   # It will show a path as below
    JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-1.el8_0.x86_64
-   export JAVA_HOME
-   PATH=$PATH:$JAVA_HOME
-    # To set it permanently update your .bash_profile
-   vi ~/.bash_profile
-   ```
-   _The output should be something like this,_
-    ```sh
-   [root@~]# java -version
-   openjdk version "1.8.0_151"
-   OpenJDK Runtime Environment (build 1.8.0_151-b12)
-   OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
+   
+   # Add this path to .bash_profile
+   vim ~/.bash_profile
+   JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.50.amzn1.x86_64
+   PATH=$PATH:$HOME/bin:$JAVA_HOME
    ```
 
 ## Install Jenkins

@@ -13,7 +13,12 @@ https://stackoverflow.com/questions/11762163/net-equivalents-for-ant-and-war-fil
 ```sh
 # creating a container on docker on port 8080(external):8080(internal) 
 docker run -d --name tomcat-container -p 8080:8080 tomcat:latest
-
 ```
+
+```sh
+# if tomcat container is 404 then do the following
+# 1. Login to container's bash by
+docker exec -it container-name /bin/bash
+#2. Copy contents inside webapp.dist into webapp folder
 
 

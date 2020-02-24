@@ -26,4 +26,9 @@ docker exec -it container-name /bin/bash
 find / -name context.xml
 ```
 
+```sh
+# AWS System Manager 
+# For accessing the server throuhg a web consol instead of open SSH port
+```
+
 

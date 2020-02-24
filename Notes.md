@@ -9,3 +9,9 @@ docker service logs -f --since 60s container_name
 # Equivalent of .WAR file to .NET
 https://stackoverflow.com/questions/11762163/net-equivalents-for-ant-and-war-files
 ```
+
+```sh
+# creating a container on docker on port 8080(external):8080(internal) 
+```
+
+

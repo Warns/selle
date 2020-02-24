@@ -29,6 +29,7 @@ find / -name context.xml
 ```sh
 # AWS System Manager 
 # For accessing the server throuhg a web consol instead of open SSH port
+https://www.youtube.com/watch?v=WmdL8aOVooM
 ```
 
 

@@ -45,10 +45,14 @@ Access tomcat application from browser on port 8090
    find / -name context.xml
    ```
 1. above command gives 3 context.xml files. comment (<!-- & -->) `Value ClassName` field on files which are under webapp directory. 
+```
+ <!-- <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
+```
 After that restart tomcat services to effect these changes
    ```sh 
-   tomcatdown
-   tomcatup
+   ./shutdown.sh
+   ./startup.sh
    ```
 1. Update users information in the tomcat-users.xml file
 goto tomcat home directory and Add below users to conf/tomcat-user.xml file

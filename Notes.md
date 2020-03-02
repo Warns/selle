@@ -36,4 +36,11 @@ https://www.youtube.com/watch?v=WmdL8aOVooM
 
 ```
 
+```sh
+# Coloring the bash
+vim ~/.bashrc
+PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\] '
+source ~/.bashrc
+```
+
 

@@ -5,6 +5,11 @@
    - Security Group with Port `8080` open for internet
 1. Java v1.8.x 
 
+## Remove old Java
+```sh
+yum remove java-1.7.0*
+```
+
 ## Install Java
 1. We will be using open java for our demo, Get the latest version from http://openjdk.java.net/install/
    ```sh

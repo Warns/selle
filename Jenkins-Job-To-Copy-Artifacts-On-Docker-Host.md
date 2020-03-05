@@ -15,5 +15,10 @@ webapp/target/ # The source path for the artifact is under whatever the job name
 
 # In source file input on Jenkins we enter the path as below to find the artifact ending with .war
 webapp/target/*.war
+
+# To remove the prefix before the artifact enter the path in "Remove prefix" field to remove it from the web
+webapp/target
+
+# "Remote Directory" is where the artifact is going to be copied on the docker host server, which is in this case the home directory of dockeradmin user that we had created. To allow it copy to the home directory enter a "/"
 ```
 

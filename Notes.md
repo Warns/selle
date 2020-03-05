@@ -43,4 +43,13 @@ PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31
 source ~/.bashrc
 ```
 
+```sh
+# Checking disk size
+df -h
+du -ahx / | sort -rh | head -n 20
 
+# Install a scanner tool to show sizes
+apt/yum install ncdu
+# Run following command
+sudo ncdu /
+```

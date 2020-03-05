@@ -15,3 +15,5 @@ usermod -aG docker dockeradmin
 # View whehther dockeradmin added to this group or not
 id dockeradmin
 ```
+
+[](https://snipboard.io/bqOnzo.jpg)

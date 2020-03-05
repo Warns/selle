@@ -34,7 +34,7 @@ ncdu /
 # AWS System Manager 
 # For accessing the server throuhg a web consol instead of open SSH port
 
-`Services` > `ÀWS System Manager` > `Session Manager`
+Services > AWS System Manager > Session Manager
 
 https://www.youtube.com/watch?v=WmdL8aOVooM
 

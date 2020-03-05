@@ -54,6 +54,7 @@ du -ahx / | sort -rh | head -n 20
 
 # Install a scanner tool to show sizes
 apt/yum install ncdu
+
 # Run following command
 sudo ncdu /
 ```

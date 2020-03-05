@@ -53,3 +53,8 @@ apt/yum install ncdu
 # Run following command
 sudo ncdu /
 ```
+
+```sh
+# Delete all files in a directory (for large number of files millions)
+find . -name "mvssession*" -print0 | xargs -0 rm
+```

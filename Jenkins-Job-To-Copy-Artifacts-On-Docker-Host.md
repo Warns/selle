@@ -20,5 +20,7 @@ webapp/target/*.war
 webapp/target
 
 # "Remote Directory" is where the artifact is going to be copied on the docker host server, which is in this case the home directory of dockeradmin user that we had created. To allow it copy to the home directory enter a "/"
+
+# Exec command to execute desired command on the remote host server (docker host in this case)
 ```
 

@@ -24,6 +24,10 @@ docker exec -it container-name /bin/bash
 ```sh
 # Find any file
 find / -name context.xml
+
+# Scan the disk for all files and folders 
+apt/yum install ncdu
+ncdu /
 ```
 
 ```sh

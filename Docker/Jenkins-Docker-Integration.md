@@ -16,4 +16,6 @@ usermod -aG docker dockeradmin
 id dockeradmin
 ```
 
-[jen](https://snipboard.io/bqOnzo.jpg)
+### 3. Enter credentials on Jenkins to connect to Docker host
+
+![jen](https://snipboard.io/bqOnzo.jpg)

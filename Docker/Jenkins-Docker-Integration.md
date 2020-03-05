@@ -17,11 +17,11 @@ id dockeradmin
 ```
 
 ### 3. Enter credentials on Jenkins to connect to Docker host
+![jen](https://snipboard.io/bqOnzo.jpg)
 
 ```sh
 # Use the internal IP address of docker host on Jenkins
 ip addr # On docker host server to find the internal IP inet 
-![jen](https://snipboard.io/bqOnzo.jpg)
 
 # The connection will fail because sshd_config has passwordauthentication set as no must be set to yes
 vim sshd_config 

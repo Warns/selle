@@ -15,10 +15,11 @@ echo
 done
 ```
 
+```sh 
 # Add permissions to the file
 chmod +x redirects.sh
 
 # Execute
 ./redirects.sh website.com
-
+```
 

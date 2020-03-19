@@ -3,7 +3,7 @@
 ```sh 
 # Check redirects of a URL in case of ERR_TOO_MANY_REDIRECTS error
 # Create a file called as redirects.sh and include inside the following
-
+```
 #!/bin/bash
 echo
 for domain in $@; do
@@ -19,5 +19,5 @@ chmod +x redirects.sh
 
 # Execute
 ./redirects.sh website.com
-```
+
 

@@ -63,3 +63,10 @@ sudo ncdu /
 # Delete all files in a directory (for large number of files millions)
 find . -name "mvssession*" -print0 | xargs -0 rm
 ```
+
+
+```sh
+# Finding erros in a log
+find . -name "mvssession*" -print0 | xargs -0 rm
+```
+grep mysql /var/log/syslog | grep ERROR

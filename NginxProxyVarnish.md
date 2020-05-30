@@ -1,4 +1,4 @@
-#h1 HTTPS with Varnish
+# HTTPS with Varnish
 
 
 server {

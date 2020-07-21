@@ -11,7 +11,7 @@ https://stackoverflow.com/questions/11762163/net-equivalents-for-ant-and-war-fil
 ```
 
 ```sh
-# creating a container on docker on port 8080(external):8080(internal) 
+# creating a container on docker on port 8080(external, host port ):8080(internal, container port) 
 docker run -d --name tomcat-container -p 8080:8080 tomcat:latest
 ```
 

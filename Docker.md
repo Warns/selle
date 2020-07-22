@@ -21,3 +21,13 @@ docker exec -it container-name /bin/bash
 # Check a container for all possible info to debug
 docker container inspect [docker ID]
 ```
+
+```sh 
+# Specify howmuch memory and CPU the container will use (100% CPU is equivalent to 100000 so 50% is 50000)
+docker run -d -p 5000:5000 -m 512m --cpu-quota=50000 [image]
+```
+
+```sh 
+# Check system stats of a container such as used memory and CPU
+docker stats [container ID]
+```

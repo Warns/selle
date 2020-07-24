@@ -4,7 +4,7 @@ In Dockerfile its better to separate the requirements file such as Package.json,
 ```YAML
 FROM python:alpine3.10
 WORKDIR /app
-COPY requirements.txt /app/requirements
+COPY requirements.txt /app/requirements # This step separates the requirements since it doesn't change often
 RUN pip install -r requirements.txt
 EXPOSE 5000
 COPY ./app

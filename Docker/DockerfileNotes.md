@@ -2,7 +2,7 @@
 
 
 ```YAML
-# In Dockerfile its better to separate the requirements file such as Package.json, requirements.txt from the rest of the copy process to speed up the image building process.
+# In Dockerfile its better to separate the requirements file such as Package.json, requirements.txt<br> from the rest of the copy process to speed up the image building process.
 FROM python:alpine3.10
 WORKDIR /app
 COPY requirements.txt /app/requirements

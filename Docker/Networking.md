@@ -1,9 +1,9 @@
-# Docker Notes
+# Docker Networking
 
 ```sh 
 # There are 4 types of networks in Docker
 # 1. bridge: the default netowrking in Docker 
-# 2. host: only works on linux
+# 2. host: only works on linux (Which is the way to go to connect containers to each other on Cloud solutions Azure, AWS, Google Cloud)
 # 3. none: no netowrking at all
 # 4. any other custom networking
 ```

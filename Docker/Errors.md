@@ -10,5 +10,5 @@ There was an unexpected error (type=Internal Server Error, status=500).
 Connection refused (Connection refused) executing GET http://localhost:8000/currency-exchange/from/EUR/to/INR
 
 #WATCH
-Indian 32
+Indian Master 2/32
 ```

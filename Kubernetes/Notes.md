@@ -35,3 +35,6 @@ Such as separating resources of Development and QA environments that are running
 
 # Replicaset
 Replicasets ensure a specific number of pods are running all the time. So there will be a DESIRED number of pods and CURRENT running number of pods. Whenever a pod gets killed or fails Replicaset will create a new pod to meet the DESIRED number of pods.
+
+# Distributed Database (ETCD) in the Master Node
+Typically its recommended to have 2-3 replicas of the distributed database in the master node because its where Kubernetes keeps all the resources and Desired state of a cluster.

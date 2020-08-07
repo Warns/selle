@@ -56,7 +56,7 @@ Whenever a k8s service starts it provides all the environment variables of other
       - image: in28min/currency-conversion:0.0.1-RELEASE #CHANGE
         imagePullPolicy: IfNotPresent
         name: currency-conversion
-        # The following env definition is used to avoid that problem.
+        # The following env definition is used to avoid that problem. *This is a more reliable approach.*
         env:
           - name: CURRENCY_EXCHANGE_SERVICE_HOST
             value: http://currency-exchange

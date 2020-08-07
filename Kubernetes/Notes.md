@@ -24,7 +24,7 @@ The container lives inside the pod
 
 ### All container inside a pod talk to each other with localhost
 
-## Pods can have mutliple containers. Pods in a single node can relate to the same application or different applications.
+## Pods can have mutliple containers. Pods in a single node can be related to the same application or different applications.
 
 ## Pods provide a way to put your containers together and give them an IP address. And provides a categorization for all the containers inside it by associating them with labels.
 
@@ -38,3 +38,26 @@ Replicasets ensure a specific number of pods are running all the time. So there 
 
 # Distributed Database (ETCD) in the Master Node
 Typically its recommended to have 2-3 replicas of the distributed database in the master node because its where Kubernetes keeps all the resources and Desired state of a cluster.
+
+# deployment.yaml file
+spec:
+sessionAffinity: none/true #1. this should be set to none if our application is something like a Rest API. 2. And set to true if you have a web application in that case you will want all requests from one user to go to the same pod, because the session is maintained in that specific pod. 
+
+> Kind: Service # Does not map to a deployment but maps to a pod. When mapping selectors etc.
+
+# Kubernetes Service Environment
+Whenever a k8s service starts it provides all the environment variables of other running services. Thats why when two different deployments are launched and one of them relies to the other the two microservices automatically connect to each other using the environment variables provided by k8s.
+
+> But there is a catch to this because if the service that provides the env variables wasn't running at the time of need k8s will fail to provide the env variables. To avoid that use the following to provide a URL.
+
+```YAML
+  spec:
+      containers:
+      - image: in28min/currency-conversion:0.0.1-RELEASE #CHANGE
+        imagePullPolicy: IfNotPresent
+        name: currency-conversion
+        # The following env definition is used to avoid that problem.
+        env:
+          - name: CURRENCY_EXCHANGE_SERVICE_HOST
+            value: http://currency-exchange
+```

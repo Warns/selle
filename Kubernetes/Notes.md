@@ -81,3 +81,27 @@ K8s provides the following concept for that.
 
 ## K8s Ingress
 Instead of creating the services as loadbalancers. We switch them over to nodePort and create Ingress to route the request to the appropriate microservices based on the URLs.
+
+## When you create an ingress there will be a load balancer attached to it that will work globally for all microservices. To add a new microservice to the ingress you just need to provide the path in it's YAML.
+
+```YAML
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gateway-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      # The following paths are an array and means that it can be multiple microservices. 
+      - path: /currency-exchange/*
+        backend:
+          serviceName: currency-exchange
+          servicePort: 8000          
+      - path: /currency-conversion/*
+        backend:
+          serviceName: currency-conversion
+          servicePort: 8100
+```

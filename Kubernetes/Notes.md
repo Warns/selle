@@ -22,7 +22,7 @@ There can be multiple pods in a single node and multipe containers in a single p
 The container lives inside the pod
 ![](https://snipboard.io/OrZvpf.jpg)
 
-### All container inside a pod talk to each other with localhost
+> All container inside a pod talk to each other with localhost
 
 ## Pods can have mutliple containers. Pods in a single node can be related to the same application or different applications.
 
@@ -56,8 +56,28 @@ Whenever a k8s service starts it provides all the environment variables of other
       - image: in28min/currency-conversion:0.0.1-RELEASE #CHANGE
         imagePullPolicy: IfNotPresent
         name: currency-conversion
-        # The following env definition is used to avoid that problem. *This is a more reliable approach.*
+        # The following env definition is used to avoid that problem. 
         env:
           - name: CURRENCY_EXCHANGE_SERVICE_HOST
-            value: http://currency-exchange
+            value: http://currency-exchange # This will be removed when using configMaps.
+        # When using configMaps instead of this method the following will be used instead of the value: http://currency-exchange above
+            valueFrom: 
+                configMapKeyRef:
+                    key: CURRENCY_EXCHANGE_SERVICE_HOST
+                    name: currency-conversion-config-map
 ```
+
+> This is a more reliable approach.
+
+## Kubernetes provides service discovery and loadbalancing for free and automatically for your microservices. All you need to do is the above env variable where you provide service name "value: http://currency-exchange"
+
+## K8S Config maps are the recommended option to store environment configurations. Each environment (Dev, QA, Prod) should have a different configuration for config maps. In the above example 
+
+# IMPORTANT! Since LoadBalancers are expensive you should have multiple LBs for every microservice. Its needed as highly available thats why expensive. 
+
+Instead, you need a centralized feature to be responsible for the routing the request to the appropriate service that load balancer does.
+
+K8s provides the following concept for that.
+
+## K8s Ingress
+Instead of creating the services as loadbalancers. We switch them over to nodePort and create Ingress to route the request to the appropriate microservices based on the URLs.

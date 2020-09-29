@@ -109,6 +109,7 @@ This will produce the IP on the terminal. Using that IP as ip-address:20001/kial
 curl -o /dev/null -s -w %{http_code} http://52.146.55.86/productpage
 ```
 
+Instead of refreshing the page several times, we use the watch command to continuously send HTTP GET requests to the productpage service using the curl tool. We direct any output to /dev/null, use -s to suppress curl progress status and use -w to show us the HTTP code of the response message. Now, in a few moments, the Kiali dashboard should look as follows:
 
 
 

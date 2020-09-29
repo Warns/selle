@@ -100,9 +100,15 @@ kubectl -n istio-system get service kiali -o jsonpath='{.status.loadBalancer.ing
 kubectl -n istio-system get service kiali -o jsonpath='{.spec.ports[?(@.name=="http-kiali")].port}'
 ```
 
-This will produce an IP on the terminal. Using that IP as ip-address:20001/kiali you will be able to access kiali externally.
+This will produce the IP on the terminal. Using that IP as ip-address:20001/kiali you will be able to access kiali externally.
 
 ---
+
+**Let’s verify that our Bookinfo application is receiving traffic. Execute the following command:**
+```sh
+curl -o /dev/null -s -w %{http_code} http://52.146.55.86/productpage
+```
+
 
 
 

@@ -102,5 +102,9 @@ kubectl -n istio-system get service kiali -o jsonpath='{.spec.ports[?(@.name=="h
 
 This will produce an IP on the terminal. Using that IP as ip-address:20001/kiali you will be able to access kiali externally.
 
+---
+
+
+
 
 

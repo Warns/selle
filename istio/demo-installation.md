@@ -27,3 +27,10 @@ istioctl install --set profile=demo
 kubectl label namespace default istio-injection=enabled
 ```
 
+6. Deploy the Bookinfo sample app
+```sh
+kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+```
+
+
+

@@ -26,4 +26,7 @@ It allows service A and service B talk to each other securely if they need to.
 
 You can upgrade unencrypted traffic in your service mesh through citadel to make it encrypted going back and forth.
 
--   
+When communicating with multiple clusters Citadel handles the connection to be encrypted and secure.
+
+- Mixer
+This is where all the Sidecars and istio things come together. And puts the telemetry together to allow Pilot show the graphs.

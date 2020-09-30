@@ -34,6 +34,8 @@ This is where all the Sidecars and istio things come together. And puts the tele
 istio service mesh diag
 ![](https://istio.io/latest/docs/ops/deployment/architecture/arch.svg)
 
+> By injecting a sidecar into the service as a proxy, istio handles the comm between services. Envoy (proxy) injects itself into every microservice.
+
 ### What does service mesh do?
 
 - Plugs itself into the intra-service communication

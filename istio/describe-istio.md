@@ -37,6 +37,9 @@ This is where all the Sidecars and istio things come together. And puts the tele
 - Galley
 After having the Envoy (a sidecar proxy) proxies on the services Galley is deployed to do the configuration. Its the first element of the control plane.
 
+
+
+
 istio service mesh diag
 ![](https://istio.io/latest/docs/ops/deployment/architecture/arch.svg)
 

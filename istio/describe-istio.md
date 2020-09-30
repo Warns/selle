@@ -31,6 +31,7 @@ The security aspect of the service mesh, it has CA (Certificate Authority) built
 - Mixer
 This is where all the Sidecars and istio things come together. And puts the telemetry together to allow Pilot show the graphs.
 
+istio service mesh diag
 ![](https://istio.io/latest/docs/ops/deployment/architecture/arch.svg)
 
 ### What does service mesh do?

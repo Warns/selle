@@ -22,11 +22,11 @@ This drvies the actual istio service mesh. It has A/B testing, control canary de
 - Citadel
 The security aspect of the service mesh, it has CA (Certificate Authority) built inside of it. 
 
-It allows service A and service B talk to each other securely if they need to.
+	- It allows service A and service B talk to each other securely if they need to.
 
-You can upgrade unencrypted traffic in your service mesh through citadel to make it encrypted going back and forth.
+	- You can upgrade unencrypted traffic in your service mesh through citadel to make it encrypted going back and forth.
 
-When communicating with multiple clusters Citadel handles the connection to be encrypted and secure.
+	- When communicating with multiple clusters Citadel handles the connection to be encrypted and secure.
 
 - Mixer
 This is where all the Sidecars and istio things come together. And puts the telemetry together to allow Pilot show the graphs.

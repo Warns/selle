@@ -37,7 +37,13 @@ This is where all the Sidecars and istio things come together. And puts the tele
 - Intercepts east-west, north-south traffic
 - Captures telemetry related to services and traffic
 - Adds an implicit security layer
-- Enables service discovery
+- Enables service discovery (If a service has multiple versions, all of them can be registered with one service endpoint and at runtime we can define how the traffic is going to be routed to one of the versions (Policy driven routing and traffic management))
 - Implements policy-driven routing and traffic management
 - Interfaces well with legacy and modern infrastructure
+
+
+
+
+
+
 

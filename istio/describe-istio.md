@@ -31,6 +31,8 @@ When communicating with multiple clusters Citadel handles the connection to be e
 - Mixer
 This is where all the Sidecars and istio things come together. And puts the telemetry together to allow Pilot show the graphs.
 
+![](https://istio.io/latest/docs/ops/deployment/architecture/arch.svg)
+
 ### What does service mesh do?
 
 - Plugs itself into the intra-service communication

@@ -78,7 +78,7 @@ spec:
 ```
 
 ## Keynotes
-- istio has a name-centric config model (routes based on names)
-- istio doesn't do DNS natively, but has plugins that do (via CoreDNS) using this DNS plugin we create global names for our services.
+- istio has a name-centric config model (routes based on names). Use global naming scheme across your clusters.
+- istio doesn't do DNS natively, but has plugins that do (via CoreDNS) using this DNS plugin we create global names for our services. This is necessary to route accross multiple clusters.
 - using DNS+Istio config manipulating these names, we can affect traffic flow without changing applications, including bridging L3 networks
-- you can route external services via an egress proxy to make network/firewall rules easy. (Not required but good to have)
+- you can route external services via an egress proxy to make network/firewall rules easy. (Not required but good to have to make firewall rules simpler.)

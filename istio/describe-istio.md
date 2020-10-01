@@ -16,6 +16,8 @@ Logging, graphing, metrics.
 
 - Resiliency between apps (retries, circuit breakers, outlier detection, etc.).
 
+
+> Istio routes based on names!
 ### Istio components
 
 - Envoy

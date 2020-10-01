@@ -6,13 +6,15 @@
 How communications done between service A and service B or how communications are done coming from outside
 
 - Fine-grain Control
-Rules, retries, failovers, fault injections. Gives you the ability to how you specifically talk to service A and not service B in certain situations.
+Rules, retries, failovers, fault injections. Gives you the ability to how you specifically talk to service A and not service B in certain situations. Fine-grain control over what traffic flows where.
 
 - Access control
 Making sure that the policies you have for your cloud native application is correct and is enforceable.
 
 - Visibility
 Logging, graphing, metrics.
+
+- Resiliency between apps (retries, circuit breakers, outlier detection, etc.)
 
 ### Istio components
 
@@ -41,7 +43,7 @@ After having the Envoy (a sidecar proxy) proxies on the services Galley is deplo
 
 
 istio service mesh diag
-![]![](https://istio.io/latest/docs/ops/deployment/architecture/arch.svg)
+![](https://istio.io/latest/docs/ops/deployment/architecture/arch.svg)
 
 istio architecture
 ![](https://istio.io/v1.1/docs/concepts/what-is-istio/arch.svg)
@@ -51,7 +53,7 @@ istio architecture
 ### What does service mesh do?
 
 - Plugs itself into the intra-service communication
-- Intercepts east-west, north-south traffic
+- Intercepts east-west traffic
 - Captures telemetry related to services and traffic
 - Adds an implicit security layer
 - Enables service discovery (If a service has multiple versions, all of them can be registered with one service endpoint and at runtime we can define how the traffic is going to be routed to one of the versions (Policy driven routing and traffic management))

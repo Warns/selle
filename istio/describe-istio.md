@@ -14,7 +14,7 @@ Making sure that the policies you have for your cloud native application is corr
 - Visibility
 Logging, graphing, metrics.
 
-- Resiliency between apps (retries, circuit breakers, outlier detection, etc.)
+- Resiliency between apps (retries, circuit breakers, outlier detection, etc.).
 
 ### Istio components
 

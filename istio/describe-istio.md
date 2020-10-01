@@ -76,3 +76,9 @@ spec:
 		- destination:
 				host: backend.default.global
 ```
+
+## Keynotes
+- istio has a name-centric config model (routes based on names)
+- istio doesn't do DNS natively, but has plugins that do (via CoreDNS) using this DNS plugin we create global names for our services.
+- using DNS+Istio config manipulating these names, we can affect traffic flow without changing applications, including bridging L3 networks
+- you can route external services via an egress proxy to make network/firewall rules easy. (Not required but good to have)

@@ -41,7 +41,7 @@ After having the Envoy (a sidecar proxy) proxies on the services Galley is deplo
 
 
 istio service mesh diag
-![]![](https://istio.io/latest/docs/ops/deployment/architecture/arch.svg)
+![](https://istio.io/latest/docs/ops/deployment/architecture/arch.svg)
 
 istio architecture
 ![](https://istio.io/v1.1/docs/concepts/what-is-istio/arch.svg)

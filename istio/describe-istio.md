@@ -17,7 +17,6 @@ Logging, graphing, metrics.
 - Resiliency between apps (retries, circuit breakers, outlier detection, etc.).
 
 
-> Istio routes based on names!
 ### Istio components
 
 - Envoy
@@ -63,7 +62,17 @@ istio architecture
 - Interfaces well with legacy and modern infrastructure
 
 
-
-
-
-
+### istio routing example
+```sh
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+	name: backend-to-whichever-cluster
+spec:
+	hosts:
+	- backend.default.svc.cluster.local
+	http:
+	- route:
+		- destination:
+				host: backend.default.global
+```

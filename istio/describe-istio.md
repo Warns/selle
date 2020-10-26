@@ -71,6 +71,11 @@ metadata:
 spec:
 	hosts:
 	- backend.default.svc.cluster.local
+	http:
+	- route:
+		- destination:
+				host: backend.default.global
+				
 ```
 
 ## Keynotes

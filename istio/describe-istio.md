@@ -66,6 +66,8 @@ istio architecture
 ```sh
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
+metadata:
+	name: backend-to-whichever-cluster
 
 ```
 

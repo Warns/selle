@@ -65,16 +65,7 @@ istio architecture
 ### istio routing example
 ```sh
 apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-	name: backend-to-whichever-cluster
-spec:
-	hosts:
-	- backend.default.svc.cluster.local
-	http:
-	- route:
-		- destination:
-				host: backend.default.global
+
 ```
 
 ## Keynotes

@@ -71,7 +71,6 @@ metadata:
 spec:
 	hosts:
 	- backend.default.svc.cluster.local
-
 ```
 
 ## Keynotes

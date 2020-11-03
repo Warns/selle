@@ -74,7 +74,7 @@ spec:
 	http:
 	- route:
 		- destination:
-				host: backend.default.global
+				host: backend.default.global	
 ```
 
 ## Keynotes

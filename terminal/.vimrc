@@ -45,4 +45,17 @@ let g:NERDTreeWinPos = "right"
 let g:floaterm_keymap_toggle = '<F12>'
 let g:floaterm_height=0.3
 
+set background=dark
+:set nocompatible
+:set wildmode=full
+:set tabstop=2
+:set shiftwidth=2
+:set number
+:set incsearch
+:set backspace=start,eol,indent
+:highlight LineNr ctermfg=DarkGrey
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+let g:indentLine_color_term = 239
+let g:indentLine_char = '┊'
+
 

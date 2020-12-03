@@ -70,4 +70,9 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
+# Aliases
+alias ll="ls -alF"
+alias repos="cd ~/Documents/work/repos"
+alias gitac="git add . ; git commit -m"
+
 

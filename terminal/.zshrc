@@ -75,4 +75,12 @@ alias ll="ls -alF"
 alias repos="cd ~/Documents/work/repos"
 alias gitac="git add . ; git commit -m"
 
+alias ckadmaster='ssh -i ~/.ssh/ckad_aws.pem ubuntu@ec2-34-255-1-128.eu-west-1.compute.amazonaws.com'
 
+alias ckadworker="ssh -i ~/.ssh/ckad_aws.pem ubuntu@ec2-34-245-148-38.eu-west-1.compute.amazonaws.com"
+
+# To allow using ctrl+w and ctrl+s
+stty -F/dev/tty -ixon -ixoff
+
+# Kubectl
+alias k="kubectl"

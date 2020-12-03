@@ -37,4 +37,12 @@ augroup autosourcing
     autocmd BufWritePost .vimrc source %
 augroup END
 
+" Auto open NERDTree in vim
+au VimEnter *  NERDTree
+:let g:NERDTreeWinSize=25
+let NERDTreeShowHidden=1
+let g:NERDTreeWinPos = "right"
+let g:floaterm_keymap_toggle = '<F12>'
+let g:floaterm_height=0.3
+
 

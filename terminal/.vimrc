@@ -14,4 +14,17 @@ Plug 'tpope/vim-commentary'
 Plug 'glepnir/oceanic-material'
 call plug#end() 
 
+set showmatch
+set autowriteall
+set autoindent
+set fileformat=unix
+set backspace=indent,eol,start
+set complete=.,w,b,u
+set hlsearch
+set incsearch
 
+
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif

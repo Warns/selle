@@ -1,3 +1,5 @@
+" ~/.config/nvim/vim-plug/plugins.vim
+
 syntax on
 set modeline
 set expandtab

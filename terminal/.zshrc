@@ -84,3 +84,5 @@ stty -F/dev/tty -ixon -ixoff
 
 # Kubectl
 alias k="kubectl"
+
+export PATH=/usr/local/bin:$PATH

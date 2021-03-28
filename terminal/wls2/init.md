@@ -1,4 +1,4 @@
-## Fix time and date issue when `apt update` fails.
+Fix time and date issue when `apt update` fails.
 
 ```sh
 sudo apt install ntpdate -y

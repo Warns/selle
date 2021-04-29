@@ -21,6 +21,8 @@ The NGINX Ingress Controller requires a ServiceAccount. Create a ServiceAccount 
 
 ## Create Roles and RoleBinding
 
+![image](https://user-images.githubusercontent.com/4021052/116611004-88049400-a93e-11eb-90b7-a4973188f5fa.png)  
+
 ### Role
 Use `--dry-run=client` first to create this file and edit the roles.   
 

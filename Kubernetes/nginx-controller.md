@@ -135,3 +135,135 @@ subjects:
 - kind: ServiceAccount
   name: ingress-serviceaccount
 ```
+
+## Create ClusterRole and ClusterRoleBinding
+
+![image](https://user-images.githubusercontent.com/4021052/116611213-c601b800-a93e-11eb-8e70-245463062ae5.png)  
+
+### ClusterRole
+Use `--dry-run=client` first to create this file and edit the cluster roles.   
+
+`kubectl create clusterrole ingress-clusterrole --namespace=ingress-space --verb=get --resource=services --dry-run=client -o yaml > clusterrole.yml`  
+
+Ultimately the role config should look like below:  
+
+```sh
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: "2021-04-29T20:53:42Z"
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+  managedFields:
+  - apiVersion: rbac.authorization.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/part-of: {}
+      f:rules: {}
+    manager: python-requests
+    operation: Update
+    time: "2021-04-29T20:53:42Z"
+  name: ingress-clusterrole
+  resourceVersion: "7855"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterroles/ingress-clusterrole
+  uid: 937b75c6-7a12-4a29-80c2-e4cd9f828079
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  - endpoints
+  - nodes
+  - pods
+  - secrets
+  verbs:
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - get
+- apiGroups:
+  - ""
+  resources:
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - extensions
+  resources:
+  - ingresses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+- apiGroups:
+  - extensions
+  resources:
+  - ingresses/status
+  verbs:
+  - update
+```  
+
+### ClusterRoleBinding
+
+Use `--dry-run=client` first to create this file and edit the cluster roles.   
+
+`kubectl create clusterrolebinding ingress-clusterrole-binding --namespace=ingress-space --role=ingress-clusterrole --dry-run=client -o yaml > clusterrole-binding.yml`  
+
+Ultimately the role config should look like below:  
+
+```sh
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  creationTimestamp: "2021-04-29T21:03:05Z"
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+  managedFields:
+  - apiVersion: rbac.authorization.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/part-of: {}
+      f:roleRef:
+        f:apiGroup: {}
+        f:kind: {}
+        f:name: {}
+      f:subjects: {}
+    manager: python-requests
+    operation: Update
+    time: "2021-04-29T21:03:05Z"
+  name: ingress-clusterrole-binding
+  resourceVersion: "1364"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterrolebindings/ingress-clusterrole-binding
+  uid: dea15ae6-2d88-4fbf-b35f-2faedb945761
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: ingress-clusterrole
+subjects:
+- kind: ServiceAccount
+  name: ingress-serviceaccount
+  namespace: ingress-space
+```  

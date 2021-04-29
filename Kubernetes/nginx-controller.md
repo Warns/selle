@@ -1,3 +1,5 @@
+# Create Nginx Ingress Controller
+
 ## Create a namespace
 Create a name space called `ingress-space` to hold everything related to the ingress controller  
 
@@ -267,8 +269,9 @@ subjects:
   namespace: ingress-space
 ```  
 
-## Deploy the Ingress Controller
+## Deploy the Ingress Controller  
 
+![image](https://user-images.githubusercontent.com/4021052/116622001-abced680-a94c-11eb-9d6c-3b14ff115a01.png)  
 Use `--dry-run=client` first to create the deployment given the information in previous steps
 
 `kubectl create deployment ingress-controller --image=quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.21.0 --namespace=ingress-space --dry-run=client -o yaml > ingress-controller-deployment.yml`  
@@ -316,7 +319,10 @@ spec:
               containerPort: 443
 ```
 
-## Create a Service
+## Create a Service  
+
+![image](https://user-images.githubusercontent.com/4021052/116622121-d882ee00-a94c-11eb-8374-cd707278a4cd.png)  
+
 Create a service to make Ingress available to external users
 
 Use `--dry-run=client` first to create the service given the information in previous steps  
@@ -342,3 +348,32 @@ spec:
     name: nginx-ingress
   type: NodePort
 ```
+
+# Create Ingress Resource
+Create the ingress resource to make the applications available at /wear and /watch on the Ingress service. (Create the ingress resource in the app namespace)  
+
+The Service should look like below:  
+
+```sh
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-wear-watch
+  namespace: app-space
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /wear
+        backend:
+          serviceName: wear-service
+          servicePort: 8080
+      - path: /watch
+        backend:
+          serviceName: video-service
+          servicePort: 8080
+```
+

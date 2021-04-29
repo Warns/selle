@@ -315,3 +315,30 @@ spec:
             - name: https
               containerPort: 443
 ```
+
+## Create a Service
+Create a service to make Ingress available to external users
+
+Use `--dry-run=client` first to create the service given the information in previous steps  
+
+`kubectl expose deployment ingress-controller --namespace=ingress-space --type=NodePort --port=80 --name=ingress --dry-run -o yaml > ingress-service.yml`  
+
+The Service should ultimately look like below:  
+
+```sh
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: ingress
+  namespace: ingress-space
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30080
+  selector:
+    name: nginx-ingress
+  type: NodePort
+```

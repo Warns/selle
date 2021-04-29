@@ -352,7 +352,7 @@ spec:
 # Create Ingress Resource
 Create the ingress resource to make the applications available at /wear and /watch on the Ingress service. (Create the ingress resource in the app namespace)  
 
-The Service should look like below:  
+The Ingress resource should look like below:  
 
 ```sh
 apiVersion: extensions/v1beta1

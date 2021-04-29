@@ -30,7 +30,6 @@ Use `--dry-run=client` first to create this file and edit the roles.
 
 Ultimately the role config should look like below:  
 
-
 ```sh
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -95,7 +94,7 @@ Use `--dry-run=client` first to create this file and edit the roles.
 
 `kubectl create rolebinding ingress-role-binding --namespace=ingress-space --role=ingress-role --dry-run=client -o yaml > rolebinding.yml`  
 
-Ultimately the role config should look like below:  
+Ultimately the RoleBinding should look like below:  
 
 ```sh
 apiVersion: rbac.authorization.k8s.io/v1
@@ -145,7 +144,7 @@ Use `--dry-run=client` first to create this file and edit the cluster roles.
 
 `kubectl create clusterrole ingress-clusterrole --namespace=ingress-space --verb=get --resource=services --dry-run=client -o yaml > clusterrole.yml`  
 
-Ultimately the role config should look like below:  
+Ultimately the ClusterRole should look like below:  
 
 ```sh
 apiVersion: rbac.authorization.k8s.io/v1
@@ -227,7 +226,7 @@ Use `--dry-run=client` first to create this file and edit the cluster roles.
 
 `kubectl create clusterrolebinding ingress-clusterrole-binding --namespace=ingress-space --role=ingress-clusterrole --dry-run=client -o yaml > clusterrole-binding.yml`  
 
-Ultimately the role config should look like below:  
+Ultimately the ClusterRoleBinding should look like below:  
 
 ```sh
 apiVersion: rbac.authorization.k8s.io/v1
@@ -267,3 +266,52 @@ subjects:
   name: ingress-serviceaccount
   namespace: ingress-space
 ```  
+
+## Deploy the Ingress Controller
+
+Use `--dry-run=client` first to create the deployment given the information in previous steps
+
+`kubectl create deployment ingress-controller --image=quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.21.0 --namespace=ingress-space --dry-run=client -o yaml > ingress-controller-deployment.yml`  
+
+Ultimately the deployment should look like blow:
+
+```sh
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingress-controller
+  namespace: ingress-space
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: nginx-ingress
+  template:
+    metadata:
+      labels:
+        name: nginx-ingress
+    spec:
+      serviceAccountName: ingress-serviceaccount
+      containers:
+        - name: nginx-ingress-controller
+          image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.21.0
+          args:
+            - /nginx-ingress-controller
+            - --configmap=$(POD_NAMESPACE)/nginx-configuration
+            - --default-backend-service=app-space/default-http-backend
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          ports:
+            - name: http
+              containerPort: 80
+            - name: https
+              containerPort: 443
+```

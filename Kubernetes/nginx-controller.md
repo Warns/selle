@@ -32,7 +32,7 @@ Use `--dry-run=client` first to create this file and edit the roles.
 
 Ultimately the role config should look like below:  
 
-```sh
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -98,7 +98,7 @@ Use `--dry-run=client` first to create this file and edit the roles.
 
 Ultimately the RoleBinding should look like below:  
 
-```sh
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -148,7 +148,7 @@ Use `--dry-run=client` first to create this file and edit the cluster roles.
 
 Ultimately the ClusterRole should look like below:  
 
-```sh
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -230,7 +230,7 @@ Use `--dry-run=client` first to create this file and edit the cluster roles.
 
 Ultimately the ClusterRoleBinding should look like below:  
 
-```sh
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -278,8 +278,7 @@ Use `--dry-run=client` first to create the deployment given the information in p
 
 Ultimately the deployment should look like blow:
 
-```sh
----
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -331,7 +330,7 @@ Use `--dry-run=client` first to create the service given the information in prev
 
 The Service should ultimately look like below:  
 
-```sh
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -354,7 +353,7 @@ Create the ingress resource to make the applications available at /wear and /wat
 
 The Ingress resource should look like below:  
 
-```sh
+```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:

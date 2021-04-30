@@ -1,6 +1,6 @@
 ### Creating a network policy to control ingress and egress access to a specific pod under a specific namespace and environment  
 
-```sh
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:

@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: identity-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: identity-api
+  template:
+    metadata:
+      labels:
+        app: identity-api
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: identity-api
+        image: sociallmek8sacr.azurecr.io/identityservice:${{ github.sha }}
+        envFrom:
+        - secretRef:
+            name: env-secrets
+        imagePullPolicy: Always
+        # command: ["/bin/sh"]
+        # args: ["-c", "while true; do echo Container Running; sleep 3;done"]
+        resources:
+          requests:
+            cpu: 250m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: identity-api
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8000
+  selector:
+    app: identity-api
